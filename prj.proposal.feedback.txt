@@ -1,0 +1,22 @@
+10 pts
+
+Chris,
+
+The proposal was not in the required folder. Please organize your repository.
+
+The project idea seems interesting; however: 
+  - it is not clear exactly how the DFA will be used.
+
+Use java if you can.
+
+Here is a paper that might help you along the way (heavy on theory though):
+
+Muscholl, Anca, Thomas Schwentick, and Luc Segoufin. "Active context-free
+games." Annual Symposium on Theoretical Aspects of Computer Science. Springer
+Berlin Heidelberg, 2004.
+
+https://www.researchgate.net/profile/Anca_Muscholl/publication/227337339_Active_Context-Free_Games/links/0c960524490462809c000000.pdf
+
+Peace,
+
+- Dr. Rivas
