@@ -1,7 +1,25 @@
 package wolf_man_cabbage;
+/*
+ * Author: Chris Cordaro
+ * File: mwc_.java
+ * Course: Formal Languages and Computability CMPT_440
+ * Assignment: Homework 1
+ * Version: 1.0
+ * 
+ * 
+ * 
+ * This file defines a mwc.java class which will take in a string as input and reports whether that string 
+ * is a valid answer to the Wolf Goat Cabbage problem
+ * 
+ * 
+ * 
+ * This class uses code found in the textbook in order 
+ * to implement a solution to the problem
+ * 
+ */
 
-public class mwc {
-	private static final int q0 = 0;
+public class ManWolf {
+	private static final int q0 = 0;//Start
 	private static final int q1 = 1;
 	private static final int q2 = 2;
 	private static final int q3 = 3;
@@ -10,11 +28,14 @@ public class mwc {
 	private static final int q6 = 6;
 	private static final int q7 = 7;
 	private static final int q8 = 8;
-	private static final int q9 = 9;
-	private static final int q10 = 10;
+	private static final int q9 = 9;//Accepting
+	private static final int q10 = 10;//Error
 	
 	private static int state=0;
 	static private int[][] delta = 
+	/*
+	 * Delta represents the transition table
+	 */
 		
 			  /*W  G  C  N */		
 		{     {q10, q1, q10, q10},
@@ -30,9 +51,13 @@ public class mwc {
 				
 		};
 	
+	/*
+	 * @param in is the input from the command line/project args
+	 */
+	
 	static void process(String in){
-		int index;
-		for(int i=0; i < in.length(); i++){
+		int index=0;
+		for(int i=0; i < in.length(); i++){	
 			char c = in.charAt(i);	
 			try{
 				if(c=='w'){
@@ -45,20 +70,24 @@ public class mwc {
 					index = 3;
 				}else{
 					index = -1;
-				}
-				
-			
+				}		
 				state = delta[state][index];
-			}catch(ArrayIndexOutOfBoundsException ex){
-				System.out.println("ERROR");
+			}catch(ArrayIndexOutOfBoundsException ex){				
 				state = q10;
 			}
 		}
 	}
 	
+	/*
+	 * resets dfa to initial state
+	 */
 	public void reset(){
-		state = q10;
+		state = q0;
 	}
+	
+	/*
+	 * returns true if the input entered reaches the accepted state
+	 */
 	public boolean accepted(){
 		return state==q9;
 	}
